@@ -86,8 +86,14 @@ client.on(Events.InteractionCreate, async interaction => {
 
 	if(interaction.isModalSubmit()){
 		var outputChannel = ""
-		if(interaction.customId == 'anonSuggestModal') outputChannel = process.env.ANON_SUGGESTION_CHANNEL_ID
-		if(interaction.customId == 'publicSuggestModal') outputChannel = process.env.PUBLIC_SUGGESTION_CHANNEL_ID
+		if(interaction.customId == 'anonSuggestModal'){
+			outputChannel = process.env.ANON_SUGGESTION_CHANNEL_ID
+			// console.log('anon')
+		} 
+		if(interaction.customId == 'publicSuggestModal'){
+			outputChannel = process.env.PUBLIC_SUGGESTION_CHANNEL_ID
+			// console.log('public')
+		} 
 
 		const suggestion = interaction.fields.getField('suggestionBox').value
 		console.log(suggestion)
